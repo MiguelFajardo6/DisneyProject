@@ -31,7 +31,7 @@ class DisneyListFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
+
         _binding = FragmentDisneyListBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -57,7 +57,12 @@ class DisneyListFragment : Fragment() {
                     binding.apply {
                         rvDisney.layoutManager = LinearLayoutManager(requireActivity())
                         rvDisney.adapter = DisneyAdapter(disneyList) { disney ->
-                            // Aquí puedes definir la acción al hacer clic en un personaje
+                            disney.id?.let { id ->
+                                requireActivity().supportFragmentManager.beginTransaction()
+                                    .replace(R.id.fragment_container, DisneyDetailFragment.newInstance(id))
+                                    .addToBackStack(null)
+                                    .commit()
+                            }
                         }
                     }
                 } else {
