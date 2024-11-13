@@ -7,5 +7,6 @@ data class Disney(
     val name: String,
     @SerializedName("imageUrl")
     val imageUrl: String,
-
+    @SerializedName("createdAt")
+    val createdAt: String
 )

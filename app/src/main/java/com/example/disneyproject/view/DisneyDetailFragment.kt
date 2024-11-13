@@ -71,8 +71,14 @@ class DisneyDetailFragment : Fragment() {
                         pbLoading.visibility = View.INVISIBLE
                         val disneyDetail = response.body()?.data
                         tvTitle.text = disneyDetail?.name
-                        tvLongDesc.text = disneyDetail?.sourceUrl
-                        Picasso.get().load(disneyDetail?.imageUrl).into(binding.ivImage)
+                        val filmsText = disneyDetail?.films?.joinToString("\n") ?: "No hay películas disponibles"
+                        tvLongDesc.text = "Películas:\n$filmsText"  // Muestra los `films` en forma de lista
+
+                        Picasso.get()
+                            .load(disneyDetail?.imageUrl)
+                            .placeholder(R.drawable.ic_launcher_background)
+                            .error(R.drawable.ic_launcher_background)
+                            .into(binding.ivImage)
                     }
                 }
 

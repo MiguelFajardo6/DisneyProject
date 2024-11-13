@@ -8,5 +8,7 @@ data class DisneyDetail(
     @SerializedName("imageUrl")
     val imageUrl: String,
     @SerializedName("sourceUrl")
-    val sourceUrl: String
+    val sourceUrl: String,
+    @SerializedName("films")
+    val films: List<String>
 )
