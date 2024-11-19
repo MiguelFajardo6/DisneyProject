@@ -11,7 +11,7 @@ import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import com.example.disneyproject.R
 import com.example.disneyproject.data.remote.DisneyApi
-import com.example.disneyproject.data.remote.model.DisneyDetail
+
 import com.example.disneyproject.data.remote.model.DisneyDetailResponse
 import com.example.disneyproject.databinding.FragmentDisneyDetailBinding
 import com.example.disneyproject.util.Constants
@@ -52,7 +52,7 @@ class DisneyDetailFragment : Fragment() {
             binding.pbLoading.visibility = View.VISIBLE
             fetchData(characterId)
         } ?: run {
-            Toast.makeText(requireActivity(), "ID de personaje no encontrado", Toast.LENGTH_SHORT).show()
+            Toast.makeText(requireActivity(), R.string.SinResultado, Toast.LENGTH_SHORT).show()
         }
     }
 
@@ -74,11 +74,11 @@ class DisneyDetailFragment : Fragment() {
                     tvTitle.text = disneyDetail?.name
 
                     val filmsText = if (disneyDetail?.films.isNullOrEmpty()) {
-                        "No hay películas disponibles"
+                        getString(R.string.SinPelicula)
                     } else {
                         disneyDetail?.films?.joinToString("\n")
                     }
-                    tvLongDesc.text = "Películas:\n$filmsText"
+                    tvLongDesc.text = getString(R.string.Peliculas, filmsText)
 
                     Picasso.get()
                         .load(disneyDetail?.imageUrl)
@@ -92,13 +92,13 @@ class DisneyDetailFragment : Fragment() {
                 binding.pbLoading.visibility = View.INVISIBLE
                 // Mostrar diálogo de reintento
                 AlertDialog.Builder(requireActivity())
-                    .setTitle("Error de Conexión")
-                    .setMessage("No se pudo conectar al servidor. ¿Desea intentar de nuevo?")
-                    .setPositiveButton("Reintentar") { _, _ ->
+                    .setTitle(R.string.Error)
+                    .setMessage(R.string.Resultado)
+                    .setPositiveButton(R.string.Reintentar) { _, _ ->
                         binding.pbLoading.visibility = View.VISIBLE
                         fetchData(characterId)
                     }
-                    .setNegativeButton("Cancelar") { dialog, _ ->
+                    .setNegativeButton(R.string.Cancelar) { dialog, _ ->
                         dialog.dismiss()
                     }
                     .show()

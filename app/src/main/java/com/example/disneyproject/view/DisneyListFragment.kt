@@ -7,12 +7,12 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
+
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.disneyproject.R
 import com.example.disneyproject.data.remote.DisneyApi
-import com.example.disneyproject.data.remote.model.Disney
+
 import com.example.disneyproject.data.remote.model.DisneyResponse
 import com.example.disneyproject.databinding.FragmentDisneyListBinding
 import com.example.disneyproject.util.Constants
@@ -88,14 +88,14 @@ class DisneyListFragment : Fragment() {
                     binding.pbLoading.visibility = View.INVISIBLE
 
                     AlertDialog.Builder(requireActivity())
-                        .setTitle("Error de Conexión")
-                        .setMessage("No se pudo conectar al servidor. ¿Desea intentar de nuevo?")
-                        .setPositiveButton("Reintentar") { _, _ ->
+                        .setTitle(R.string.Error)
+                        .setMessage(R.string.Resultado)
+                        .setPositiveButton(R.string.Reintentar) { _, _ ->
 
                             binding.pbLoading.visibility = View.VISIBLE
                             fetchData()
                         }
-                        .setNegativeButton("Cancelar") { dialog, _ ->
+                        .setNegativeButton(R.string.Cancelar) { dialog, _ ->
                             dialog.dismiss()
                         }
                         .show()

@@ -2,4 +2,12 @@
     <string name="app_name">DisneyProject</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="Error">Error de Conexión</string>
+    <string name="Resultado">No se pudo conectar al servidor. ¿Desea intentar de nuevo?</string>
+    <string name="Reintentar">Reintentar</string>
+    <string name="Cancelar">Cancelar</string>
+    <string name="SinResultado">ID de personaje no encontrado</string>
+    <string name="SinPelicula">No hay películas disponibles</string>
+    <string name="Peliculas">Películas:\n%s</string>
+    <string name="Fecha">Fecha</string>
 </resources>
