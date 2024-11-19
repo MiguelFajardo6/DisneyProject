@@ -27,8 +27,8 @@ class DisneyViewHolder(
 
         Glide.with(binding.root.context)
             .load(disney.imageUrl)
-            .error(R.drawable.ic_launcher_background)
-            .placeholder(R.drawable.ic_launcher_background)
+            .error(R.drawable.mickeyimg)
+            .placeholder(R.drawable.mickeyimg)
             .into(binding.ivThumbnail)
     }
 }

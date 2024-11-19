@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:foreground="@drawable/custom_ripple"
     android:padding="4dp">
 
 
@@ -11,15 +12,16 @@
         android:id="@+id/viewBackground"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:background="@drawable/background_game"
+        android:background="@drawable/background_disney_element"
         android:paddingBottom="10dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/tvTitle" />
+        app:layout_constraintTop_toTopOf="@+id/tvTitle"
+        tools:layout_editor_absoluteX="4dp" />
 
     <com.makeramen.roundedimageview.RoundedImageView
         android:id="@+id/ivThumbnail"
-        android:layout_width="70dp"
-        android:layout_height="110dp"
+        android:layout_width="130dp"
+        android:layout_height="111dp"
         android:layout_marginStart="5dp"
         android:layout_marginEnd="5dp"
         android:scaleType="centerCrop"
@@ -52,51 +54,18 @@
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="3dp"
         android:layout_marginEnd="8dp"
 
         android:includeFontPadding="false"
         android:text="Nintendo"
-        android:textColor="#3FE0DD"
-        android:textSize="12sp"
-        app:layout_constraintBottom_toBottomOf="@id/guideline5"
+        android:textColor="@color/purple"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline3"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/guideline8"
-        app:layout_constraintTop_toTopOf="@id/guideline6" />
-
-    <TextView
-        android:id="@+id/tvReleased"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="3dp"
-        android:layout_marginEnd="8dp"
-
-        android:includeFontPadding="false"
-        android:text="Released: 2020"
-        android:textColor="#4A5B82"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline8"
-        app:layout_constraintBottom_toBottomOf="@id/guideline4"
-        app:layout_constraintTop_toTopOf="@id/guideline5" />
-
-    <TextView
-        android:id="@+id/tvRating"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="3dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginEnd="8dp"
-
-        android:includeFontPadding="false"
-        android:text="ESRB Rating: E-Everyone"
-        android:textColor="#F5DC53"
-        android:textSize="12sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/guideline8"
-        app:layout_constraintTop_toTopOf="@id/guideline4"
-        app:layout_constraintBottom_toBottomOf="@id/guideline3"/>
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+        app:layout_constraintVertical_bias="0.95" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/guideline2"
@@ -145,6 +114,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.22" />
+        app:layout_constraintGuide_percent="0.4" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
